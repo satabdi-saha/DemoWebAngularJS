@@ -20,25 +20,36 @@
         }
 
         $scope.NumberChange = function () {
-            if ($scope.CalProcess != '') {
-                $scope.CalProcess = $scope.RemainderValue + '' + $scope.Number;
-            }
+            debugger;
+            $scope.CalProcess = '';
+            $.each($scope.calHistry, function (index, value) {
+                if ($scope.CalProcess == '') {
+                    $scope.CalProcess = '= ';
+                }
+                $scope.CalProcess = $scope.CalProcess + value + $scope.Symbole() + $scope.Number;
+            });
         }
 
         $scope.Multiplication = function () {
             debugger;
+
             if ($scope.Number > 0) {
                 $scope.RemainderValue = $scope.Number;
                 $scope.CalType = 1;
 
                 //$scope.CalProcess = '= ' + $scope.Number + ' x ';
 
+                $scope.calHistry = [];
+                if ($scope.calHistry.length > 0) {
+                    $scope.calHistry.push('x')
+                }
+
                 $scope.calHistry.push($scope.Number)
-                $scope.calHistry.push('x')
+
 
                 $scope.CalProcess = '';
                 $.each($scope.calHistry, function (index, value) {
-                    
+
                     if ($scope.CalProcess == '') {
                         $scope.CalProcess = '= ';
                     }
@@ -67,6 +78,21 @@
                     break;
             }
 
+        }
+
+        $scope.Symbole = function () {
+            var sym = '';
+            switch ($scope.CalType) {
+                case 1:
+                    sym = ' x ';
+                    break;
+                case n:
+
+                    break;
+                default:
+                    break;
+            }
+            return sym;
         }
 
     });

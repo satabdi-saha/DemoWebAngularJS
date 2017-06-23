@@ -7,7 +7,7 @@
                     <div class="form-group">
                         <label for="add-number" class="col-sm-2 control-label">Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control text-right" id="add-number" name="txtNumber" placeholder="Numeric Value" ng-model="Number" required>
+                            <input type="text" class="form-control text-right" id="add-number" name="txtNumber" placeholder="Numeric Value" ng-model="Number" ng-change="NumberChange()" required>
                             {{CalProcess}}
                             <!--<ul ng-repeat="val in calHistry">
                                 <li>{{val}}</li>
