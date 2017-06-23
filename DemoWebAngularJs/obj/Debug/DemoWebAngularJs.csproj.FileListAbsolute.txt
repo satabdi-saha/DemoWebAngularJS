@@ -52,3 +52,4 @@ D:\Debasis_Das\Angular_Project\DemoWebAngularJs\DemoWebAngularJs\bin\Microsoft.O
 D:\Debasis_Das\Angular_Project\DemoWebAngularJs\DemoWebAngularJs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Debasis_Das\Angular_Project\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.dll
 D:\Debasis_Das\Angular_Project\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.pdb
+D:\Debasis_Das\Angular_Project\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.csprojResolveAssemblyReference.cache

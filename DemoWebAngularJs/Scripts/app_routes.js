@@ -38,6 +38,13 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
             controllerUrl: 'employee-controller'
 
         }))
+        .when('/DepartmentList', angularAMD.route({
+                           
+                templateUrl: '/Views/Department/_DepartmentList.html',
+                controller: 'DepartmentController',
+                controllerUrl: 'department-controller'
+
+            }))
         .otherwise({ //Default Routing  
             redirectTo: "/EmployeeList",
             //controller: 'EmployeeController'
