@@ -11,7 +11,8 @@ require.config({
         'employee-controller': '/Views/Employee/employeeController',
         'employee-service': '/Views/Employee/employeeService',
 
-        'department-controller': '/Views/Department/departmentController'
+        'department-controller': '/Views/Department/departmentController',
+        'calculator-controller': '/Views/Calculator/calculatorController'
     },
 
 
