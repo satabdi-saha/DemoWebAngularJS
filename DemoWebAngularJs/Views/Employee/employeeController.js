@@ -3,6 +3,9 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
 
     app.controller("EmployeeController", function ($scope, $http, $location, $routeParams, empservice) {
         
+        $scope.currentPage = 0;
+        $scope.pageSize = 1;
+
         $scope.ListOfEmployee;
         $scope.Status;
 
@@ -10,6 +13,29 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             $location.path('/EmployeeList');
         }
         
+        $scope.numberOfPages = function () {
+            return Math.ceil($scope.ListOfEmployee.length / $scope.pageSize);
+        }
+        
+        $scope.range = function (min, max, step) {
+            step = step || 1;
+            var input = [];
+            for (var i = min; i <= max; i += step) {
+                input.push(i);
+            }
+            return input;
+        };
+        
+        $scope.setPage = function (page) {
+
+            if (page < 1 || page >= $scope.numberOfPages() - 1) {
+                return;
+            }
+            else {
+                $scope.currentPage = page;
+            }
+        }
+
         //Add new employee
         $scope.Add = function () {
             var employeeData = {
@@ -133,6 +159,13 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
 
         $scope.loadEmployees();
 
+    });
+
+    app.filter('startFrom', function () {
+        return function (input, start) {
+            start = +start; //parse to int
+            return input.slice(start);
+        }
     });
 
 });
