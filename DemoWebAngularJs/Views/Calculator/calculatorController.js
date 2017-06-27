@@ -127,7 +127,6 @@
                 default:
                     break;
             }
-
         }
 
         $scope.Symbole = function () {
