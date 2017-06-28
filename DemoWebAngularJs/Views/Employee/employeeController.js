@@ -28,12 +28,9 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
         
         $scope.setPage = function (page) {
 
-            if (page < 1 || page >= $scope.numberOfPages() - 1) {
-                return;
-            }
-            else {
+            if (page >=0 && page <= $scope.numberOfPages()-1) {
                 $scope.currentPage = page;
-            }
+            }            
         }
 
         //Add new employee

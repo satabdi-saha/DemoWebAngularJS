@@ -105,6 +105,6 @@ D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\bin\Micr
 D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\bin\Microsoft.Owin.Security.Google.xml
 D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\bin\Microsoft.Owin.Security.Twitter.xml
 D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.csprojResolveAssemblyReference.cache
 D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.dll
 D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.pdb
+D:\D_Drive\Projetcs\2017-2018\GitTest\DemoWebAngularJs\DemoWebAngularJs\obj\Debug\DemoWebAngularJs.csprojResolveAssemblyReference.cache

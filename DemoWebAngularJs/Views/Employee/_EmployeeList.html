@@ -36,17 +36,16 @@
             </tr>
         </tbody>
     </table>
-     
-    {{currentPage}}
+        
     <ul class="pagination">
-        <li>
+        <li ng-class="{disabled:currentPage <=0}">
             <a ng-click="setPage(0)">First</a>
         </li>
-        <li>
-            <a ng-disabled="currentPage == 0" ng-click="setPage(currentPage-1)">Previous</a>
+        <li ng-class="{disabled:currentPage <= 0}">
+            <a ng-click="setPage(currentPage-1)">Previous</a>
         </li>
         
-        <li ng-repeat="page in range(1,numberOfPages())">
+        <li ng-repeat="page in range(1,numberOfPages())" ng-class="{active:currentPage === page-1}">
 
             <a ng-click="setPage(page-1)">{{page}}</a>
 
@@ -60,13 +59,13 @@
         </li>
     </ul>
 
-    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+    <!--<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
         Previous
     </button>
     {{currentPage+1}}/{{numberOfPages()}}
     <button ng-disabled="currentPage >= ListOfEmployee.length/pageSize - 1" ng-click="currentPage=currentPage+1">
         Next
-    </button>
+    </button>-->
 
 </div>
 

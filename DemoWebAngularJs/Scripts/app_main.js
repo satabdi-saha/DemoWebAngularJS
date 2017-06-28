@@ -1,18 +1,18 @@
 ﻿
 require.config({
-    baseUrl: "/Scripts/",
+    baseUrl: "Scripts/",
 
     // alias libraries paths.  Must set 'angular'
     paths: {
-        'angular': '/Scripts/angular/angular-1.4.7.min',
-        'angular-route': '/Scripts/angular/angular-1.4.7.route',
-        'angularAMD': '/Scripts/angular/angularAMD-0.2.0.min',
+        'angular': './angular/angular-1.4.7.min',
+        'angular-route': './angular/angular-1.4.7.route',
+        'angularAMD': './angular/angularAMD-0.2.0.min',
 
-        'employee-controller': '/Views/Employee/employeeController',
-        'employee-service': '/Views/Employee/employeeService',
+        'employee-controller': '../Views/Employee/employeeController',
+        'employee-service': '../Views/Employee/employeeService',
 
-        'department-controller': '/Views/Department/departmentController',
-        'calculator-controller': '/Views/Calculator/calculatorController'
+        'department-controller': '../Views/Department/departmentController',
+        'calculator-controller': '../Views/Calculator/calculatorController'
     },
 
 
