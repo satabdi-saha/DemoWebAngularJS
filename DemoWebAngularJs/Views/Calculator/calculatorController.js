@@ -2,6 +2,8 @@
 
     app.controller("CalculatorController", function ($scope, $http, $location, $routeParams) {
         
+        document.title = 'Calculator';
+
         $scope.Header = 'Calculator';
 
         $scope.Number = 0;

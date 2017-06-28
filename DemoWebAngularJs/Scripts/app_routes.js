@@ -13,7 +13,7 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
            controller: 'EmployeeController',
            controllerUrl: 'employee-controller'
 
-       }))
+       }))      
        .when('/AddEmployee', angularAMD.route({
 
            //Routing for add employee
@@ -39,10 +39,10 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
 
         }))
         .when('/DepartmentList', angularAMD.route({
-                           
-                templateUrl: './Views/Department/_DepartmentList.html',
-                controller: 'DepartmentController',
-                controllerUrl: 'department-controller'
+
+            templateUrl: './Views/Department/_DepartmentList.html',
+            controller: 'DepartmentController',
+            controllerUrl: 'department-controller'
         }))
          .when('/Calculator', angularAMD.route({
 

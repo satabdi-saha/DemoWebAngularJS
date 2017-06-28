@@ -1,22 +1,34 @@
 ﻿
 define(['app_routes', 'employee-service'], function (app, empservice) {
 
-    app.controller("EmployeeController", function ($scope, $http, $location, $routeParams, empservice) {
-        
-        $scope.currentPage = 0;
-        $scope.pageSize = 1;
+    app.controller("EmployeeController", function ($scope, $http, $location, $routeParams, $filter, empservice) {
 
-        $scope.ListOfEmployee;
+        document.title = 'Employee';
+
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.ListOfEmployee = [];
+
         $scope.Status;
 
         $scope.Close = function () {
             $location.path('/EmployeeList');
         }
-        
-        $scope.numberOfPages = function () {
-            return Math.ceil($scope.ListOfEmployee.length / $scope.pageSize);
+
+
+        $scope.searchEmployee = '';
+
+        $scope.getData = function () {                      
+            return $filter('filter')($scope.ListOfEmployee, $scope.searchEmployee);
         }
-        
+
+
+        /**************************************/
+
+        $scope.numberOfPages = function () {           
+            return Math.ceil($scope.getData().length / $scope.pageSize);
+        }
+
         $scope.range = function (min, max, step) {
             step = step || 1;
             var input = [];
@@ -25,18 +37,19 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             }
             return input;
         };
-        
+
         $scope.setPage = function (page) {
 
-            if (page >=0 && page <= $scope.numberOfPages()-1) {
+            if (page >= 0 && page <= $scope.numberOfPages() - 1) {
                 $scope.currentPage = page;
-            }            
+            }
         }
 
+        /*******************************************/
         //Add new employee
         $scope.Add = function () {
             var employeeData = {
-                EmployeeID:0,
+                EmployeeID: 0,
                 FirstName: $scope.FirstName,
                 LastName: $scope.LastName,
                 Address: $scope.Address,
@@ -44,7 +57,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
                 DOB: $scope.DOB,
                 // DepartmentID: $scope.DepartmentID
             };
-            
+
             var promise = empservice.save(employeeData);
             promise.then(function (resp) {
 
@@ -56,7 +69,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             function (err) {
                 $scope.error = "Error!!! " + err.status + ' :: ' + err.data.message;
             });
-        }        
+        }
 
         //Update the employee records
         $scope.Update = function () {
@@ -99,7 +112,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
 
                 var promise = empservice.delete($scope.Id);
                 promise.then(function (resp) {
-                    
+
                     if (resp.status == 200) {
                         $location.path('/EmployeeList');
                     }
@@ -124,7 +137,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
 
         ////Get all employee and bind with html table
         $scope.loadEmployees = function () {
-
+            debugger;
             var promise = empservice.get();
             promise.then(function (resp) {
                 $scope.ListOfEmployee = resp.data;
@@ -135,13 +148,14 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             });
         };
 
+
         //Fill the employee records for update
         if ($routeParams.empId) {
             $scope.Id = $routeParams.empId;
 
             var promise = empservice.find($scope.Id);
             promise.then(function (resp) {
-                
+
                 $scope.FirstName = resp.data.firstName;
                 $scope.LastName = resp.data.lastName;
                 $scope.Address = resp.data.address;

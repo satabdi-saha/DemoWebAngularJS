@@ -6,7 +6,8 @@
 
 <div class="table-responsive">
     <div>
-        Rows To Display <input type="number" step="1" ng-model="pageSize" max="10" min="1" ng-change="currentPage=0" />
+        Rows To Display <input type="number" step="1" ng-model="pageSize" max="10" min="0" ng-change="currentPage=0" />
+        <input type="text" ng-model="searchEmployee" ng-change="currentPage=0" />
     </div>
     <table id="mytable" class="table table-bordred table-striped">
         <thead>
@@ -23,28 +24,27 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in ListOfEmployee | startFrom:currentPage*pageSize | limitTo:pageSize">
+            <tr ng-repeat="item in ListOfEmployee | filter:searchEmployee | startFrom:currentPage*pageSize | limitTo:pageSize">
                 <td>{{item.employeeID}}</td>
                 <td>{{item.firstName}}</td>
                 <td>{{item.lastName}}</td>
                 <td>{{item.address}}</td>
-                <td>{{item.salary}}</td>
+                <td>{{item.salary | currency:"Rs":2}}</td>
                 <td>{{item.dob}}</td>
-                <!--<td>{{item.departmentName}}</td>-->
                 <td><a class="btn btn-primary btn-xs" href="EditEmployee/{{item.employeeID}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                 <td><a class="btn btn-danger btn-xs" href="DeleteEmployee/{{item.employeeID}}"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
         </tbody>
     </table>
         
-    <ul class="pagination">
+    <ul ng-if="numberOfPages()>0" class="pagination">
         <li ng-class="{disabled:currentPage <=0}">
             <a ng-click="setPage(0)">First</a>
         </li>
         <li ng-class="{disabled:currentPage <= 0}">
             <a ng-click="setPage(currentPage-1)">Previous</a>
         </li>
-        
+
         <li ng-repeat="page in range(1,numberOfPages())" ng-class="{active:currentPage === page-1}">
 
             <a ng-click="setPage(page-1)">{{page}}</a>
@@ -59,11 +59,12 @@
         </li>
     </ul>
 
+
     <!--<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
         Previous
     </button>
     {{currentPage+1}}/{{numberOfPages()}}
-    <button ng-disabled="currentPage >= ListOfEmployee.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+    <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
         Next
     </button>-->
 
