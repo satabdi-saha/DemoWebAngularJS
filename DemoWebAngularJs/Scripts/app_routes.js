@@ -1,19 +1,26 @@
 ﻿
 define(['angularAMD', 'angular-route'], function (angularAMD) {
-
+        
     var app = angular.module('myApp', ['ngRoute']);
 
-    app.config(function ($locationProvider, $routeProvider) {
+    app.factory('SiteBaseUrl', function () {
+        return {
+            value: 'http://localhost:63452/'
+        };
+    });
 
+    app.config(function ($locationProvider, $routeProvider) {
+        
         $routeProvider
        .when('/EmployeeList', angularAMD.route({
 
            //Routing for show list of employee
            templateUrl: './Views/Employee/_EmployeeList.html',
            controller: 'EmployeeController',
-           controllerUrl: 'employee-controller'
+           controllerUrl: 'employee-controller',
+           //caseInsensitiveMatch: true
 
-       }))      
+       }))
        .when('/AddEmployee', angularAMD.route({
 
            //Routing for add employee

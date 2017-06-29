@@ -1,13 +1,16 @@
-﻿define(['app_routes'], function (app) {
+﻿
+define(['app_routes'], function (app, SiteBaseUrl) {
 
-    app.service('empservice', function ($http) {
+    app.service('empservice', function ($http, SiteBaseUrl) {
+
+        var Site_BaseUrl = SiteBaseUrl.value;
 
         this.get = function () {
-
+           
             this.data = [];
 
             this.data = $http({
-                url: "http://localhost:63452/api/Employee",
+                url: Site_BaseUrl+ 'api/Employee',
                 method: "GET",
                 //headers: authHeaders
             });
@@ -18,7 +21,7 @@
 
             this.data = [];
             this.data = $http({
-                url: "http://localhost:63452/api/Employee",
+                url: Site_BaseUrl + 'api/Employee',
                 method: "GET",
                 params: { Id: id },
 
@@ -31,7 +34,7 @@
             this.result = 0;
             if (modeldata.EmployeeID == 0) {
                 this.result = $http({
-                    url: "http://localhost:63452/api/Employee",
+                    url: Site_BaseUrl + 'api/Employee',
                     method: "POST",
                     //dataType: 'json',
                     //model: modeldata, // JSON.stringify(modeldata),
@@ -56,7 +59,7 @@
 
             this.data = [];
             this.data = $http({
-                url: "http://localhost:63452/api/Employee",
+                url: Site_BaseUrl + 'api/Employee',
                 method: "DELETE",
                 params: { Id: id },
 
