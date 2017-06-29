@@ -15,9 +15,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             $location.path('/EmployeeList');
         }
 
-
         $scope.searchEmployee = '';
-
         $scope.getData = function () {                      
             return $filter('filter')($scope.ListOfEmployee, $scope.searchEmployee);
         }
@@ -28,7 +26,6 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
         $scope.numberOfPages = function () {           
             return Math.ceil($scope.getData().length / $scope.pageSize);
         }
-
         $scope.range = function (min, max, step) {
             step = step || 1;
             var input = [];
@@ -37,13 +34,28 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
             }
             return input;
         };
-
         $scope.setPage = function (page) {
 
             if (page >= 0 && page <= $scope.numberOfPages() - 1) {
                 $scope.currentPage = page;
             }
         }
+
+        /************************/
+
+        $scope.sortColumn = "employeeID";
+        $scope.reverseSort = false;
+
+        $scope.sortData = function (column) {
+            $scope.reverseSort = ($scope.sortColumn == column ? !$scope.reverseSort : false);
+            $scope.sortColumn = column;
+        };
+        $scope.getSortClass = function (column) {
+            if ($scope.sortColumn == column) {
+                return $scope.reverseSort ? 'fa fa-2x fa-arrow-down' : 'fa fa-2x fa-arrow-up';
+            }
+            return '';
+        };
 
         /*******************************************/
         //Add new employee
