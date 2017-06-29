@@ -67,6 +67,5 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
     });
 
     return angularAMD.bootstrap(app);
-
 });
 
