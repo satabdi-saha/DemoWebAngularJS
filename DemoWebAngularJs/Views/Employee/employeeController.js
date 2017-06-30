@@ -149,7 +149,7 @@ define(['app_routes', 'employee-service'], function (app, empservice) {
 
         ////Get all employee and bind with html table
         $scope.loadEmployees = function () {
-            debugger;
+            
             var promise = empservice.get();
             promise.then(function (resp) {
                 $scope.ListOfEmployee = resp.data;

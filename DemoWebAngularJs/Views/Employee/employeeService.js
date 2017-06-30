@@ -13,6 +13,7 @@ define(['app_routes'], function (app, SiteBaseUrl) {
                 url: Site_BaseUrl+ 'api/Employee',
                 method: "GET",
                 //headers: authHeaders
+                params: { search: '' },
             });
 
             return this.data;

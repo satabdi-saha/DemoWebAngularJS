@@ -15,10 +15,20 @@ namespace WebAPI.Controllers
 
         //Get All Employees
         [HttpGet]
-        public IEnumerable<EmployeeModel> GetAllEmployee()
+        public IEnumerable<EmployeeModel> GetAllEmployee(string search)
         {
+            var data = string.IsNullOrEmpty(search) ? context.Employees
+                                            .ToList()
+                                            .OrderBy(x => x.FirstName) :
+                                            (from e in context.Employees
+                                             where (e.FirstName.StartsWith(search) || e.FirstName.EndsWith(search)
+                                             || e.LastName.StartsWith(search) || e.LastName.EndsWith(search)
+                                             || e.Address.StartsWith(search) || e.Address.EndsWith(search)
+                                             || e.Salary.ToString().StartsWith(search) || e.Salary.ToString().EndsWith(search))
+                                             select e)
+                                            .ToList()
+                                            .OrderBy(x => x.FirstName);
 
-            var data = context.Employees.ToList().OrderBy(x => x.FirstName);
             var result = data.Select(x => new EmployeeModel()
             {
                 EmployeeID = x.EmployeeID,
