@@ -37,27 +37,7 @@
         </tbody>
     </table>
 
-    <ul ng-if="numberOfPages()>0" class="pagination">
-        <li ng-class="{disabled:currentPage <=0}">
-            <a ng-click="setPage(0)">First</a>
-        </li>
-        <li ng-class="{disabled:currentPage <= 0}">
-            <a ng-click="setPage(currentPage-1)">Previous</a>
-        </li>
-
-        <li ng-repeat="page in range(1,numberOfPages())" ng-class="{active:currentPage === page-1}">
-
-            <a ng-click="setPage(page-1)">{{page}}</a>
-
-        </li>
-
-        <li ng-class="{disabled:currentPage >= numberOfPages()-1}">
-            <a ng-click="setPage(currentPage+1)">Next</a>
-        </li>
-        <li ng-class="{disabled:currentPage == numberOfPages() - 1}">
-            <a ng-click="setPage(numberOfPages()-1)">Last</a>
-        </li>
-    </ul>
+    <paging />
 
 
     <!--<button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
@@ -68,5 +48,6 @@
         Next
     </button>-->
 
+    
 </div>
 

@@ -12,7 +12,9 @@ require.config({
         'employee-service': '../Views/Employee/employeeService',
 
         'department-controller': '../Views/Department/departmentController',
-        'calculator-controller': '../Views/Calculator/calculatorController'
+        'calculator-controller': '../Views/Calculator/calculatorController',
+
+        'pagination': '../Views/Employee/employeeDirective'
     },
 
 
@@ -23,6 +25,6 @@ require.config({
     },
 
     // kick start application
-    deps: ['app_routes']
+    deps: ['app_routes', 'pagination']
 
 });

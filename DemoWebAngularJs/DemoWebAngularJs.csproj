@@ -193,12 +193,14 @@
     <Content Include="Views\Calculator\_Calculator.html" />
     <Content Include="Views\Department\departmentController.js" />
     <Content Include="Views\Department\_DepartmentList.html" />
+    <Content Include="Views\Employee\employeeDirective.js" />
     <Content Include="Views\Employee\_AddEmployee.html" />
     <Content Include="Views\Employee\_DeleteEmployee.html" />
     <Content Include="Views\Employee\_EditEmployee.html" />
     <Content Include="Views\Employee\employeeController.js" />
     <Content Include="Views\Employee\_EmployeeList.html" />
     <Content Include="Views\Employee\employeeService.js" />
+    <Content Include="Views\Employee\_Pagination.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
